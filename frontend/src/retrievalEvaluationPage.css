@@ -1,0 +1,45 @@
+.evaluation-page { max-width: 1440px; margin: 0 auto; padding: 28px clamp(16px, 4vw, 60px) 64px; }
+.evaluation-page-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 30px; }
+.evaluation-page-brand { display: inline-flex; align-items: center; gap: 12px; color: #224a3b; text-decoration: none; font-size: 24px; font-weight: 700; }
+.evaluation-page-brand > svg { width: 38px; height: 38px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.evaluation-page-brand span span { display: block; margin-top: 2px; color: #69786e; font-size: 12px; font-weight: 400; letter-spacing: .06em; }
+.evaluation-page-back { display: inline-flex; align-items: center; gap: 7px; color: #526457; font-size: 13px; text-decoration: none; }
+.evaluation-page-back svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; transform: rotate(180deg); }
+.evaluation-page-actions { display: contents; }
+.evaluation-page a:focus-visible { outline: 3px solid #94b6a0; outline-offset: 5px; border-radius: 3px; }
+
+@media (min-width: 761px) {
+  .evaluation-page {
+    width: min(1800px, calc(100% - 108px));
+    max-width: none;
+    min-height: 100vh;
+    padding: 28px 0 64px;
+    background: #f6f7f5 url('/assets/cofounder-inspired/paper-grid.webp') center top / 1050px auto repeat-y;
+  }
+
+  .evaluation-page-header {
+    position: relative;
+    min-height: 220px;
+    margin-bottom: 24px;
+    padding: 24px calc(36% + 24px) 24px 0;
+    align-items: flex-start;
+    border-bottom: 1px solid #d9dfdf;
+  }
+
+  .evaluation-page-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 34%;
+    height: calc(100% - 18px);
+    background: url('/assets/cofounder-inspired/chapter-sell.png') center / cover no-repeat;
+    border-radius: 4px;
+    image-rendering: pixelated;
+    pointer-events: none;
+  }
+
+  .evaluation-page-brand { color: #182d35; }
+  .evaluation-page-brand span span,
+  .evaluation-page-back { color: #52666e; }
+}

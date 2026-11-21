@@ -1,0 +1,255 @@
+/* 桌面细节层：共用尺寸令导航、场景和固定输入框始终对齐。 */
+.desktop-nav-group,
+.desktop-search-label,
+.desktop-view-label { display: none; }
+
+@media (min-width: 761px) {
+  :root {
+    --sidebar-width: 240px;
+    --ui-ink: #20382f;
+    --ui-muted: #607169;
+    --ui-line: #d8e1d9;
+    --ui-selected: #e4efdf;
+    --ui-radius: 8px;
+  }
+
+  .desktop-view-label { display: inline; }
+  .mobile-view-label { display: none; }
+  .globex-workbench .sidebar { padding: 22px 18px 16px; overflow-y: auto; scrollbar-width: thin; }
+  .globex-workbench .brand { flex-shrink: 0; gap: 11px; padding: 0 8px 22px; }
+  .globex-workbench .brand-name { font-size: 28px; }
+  .globex-workbench .brand-subtitle { font-size: 7px; letter-spacing: .9px; white-space: nowrap; }
+  .globex-workbench .new-chat { flex-shrink: 0; min-height: 44px; padding: 10px 14px; font-size: 14px; border: 1px solid #cdd9c7; border-radius: var(--ui-radius); background: #edf2e8; color: #294237; box-shadow: none; }
+  .globex-workbench .new-chat:hover { background: #e1eadb; border-color: #a6b99c; color: #20382f; }
+  .globex-workbench .new-chat:disabled { background: #edf2e8; border-color: #cdd9c7; color: #294237; opacity: .55; }
+  .globex-workbench .nav { flex-shrink: 0; margin-top: 12px; gap: 3px; }
+  .globex-workbench .desktop-nav-group {
+    display: block;
+    padding: 9px 12px 4px;
+    color: #758078;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 1px;
+  }
+  .globex-workbench .nav-item {
+    min-height: 44px;
+    padding: 9px 12px;
+    gap: 12px;
+    border-radius: var(--ui-radius);
+    color: #526158;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .globex-workbench .nav-item[data-view]::before { width: 26px; height: 26px; flex-basis: 26px; background-size: 180%; }
+  .globex-workbench .nav-item:hover { color: var(--ui-ink); background: #eff3ec; }
+  .globex-workbench .nav-item.active { color: var(--ui-ink); background: var(--ui-selected); box-shadow: inset 3px 0 #718e64; font-weight: 600; }
+  .globex-workbench .sidebar-search-trigger {
+    min-height: 38px;
+    margin-top: 13px;
+    padding: 7px 12px;
+    border: 1px solid var(--ui-line);
+    background: #fff;
+    color: var(--ui-muted);
+    font-size: 13px;
+    gap: 8px;
+  }
+  .globex-workbench .sidebar-search-trigger .desktop-search-label { display: inline; margin-left: -8px; }
+  .globex-workbench .sidebar-search-trigger svg { width: 16px; height: 16px; }
+  .globex-workbench .nav-label { flex-shrink: 0; margin: 18px 12px 7px; color: #728075; font-size: 11px; letter-spacing: .4px; }
+  .globex-workbench .nav-label span:last-child { font-size: 11px; font-variant-numeric: tabular-nums; }
+  .globex-workbench .sidebar-history { min-height: 76px; margin: 0 -2px 10px; overflow-x: hidden; overflow-y: auto; scrollbar-color: #c8d4c6 transparent; }
+  .globex-workbench .history-short {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
+    min-height: 38px;
+    padding: 8px 12px;
+    gap: 9px;
+    border-radius: 7px;
+    color: #617166;
+    font-size: 13px;
+    line-height: 22px;
+  }
+  .globex-workbench .history-short > svg { width: 15px; height: 15px; opacity: .8; }
+  .globex-workbench .history-short.current { color: var(--ui-ink); background: var(--ui-selected); box-shadow: inset 3px 0 #718e64; font-weight: 600; }
+  .globex-workbench .history-short:hover { color: var(--ui-ink); background: #eff3ec; }
+  .globex-workbench .sidebar-note { padding: 9px 10px; margin-bottom: 10px; background: #f0f5eb; border-color: #e0e7db; border-radius: var(--ui-radius); }
+  .globex-workbench .sidebar-note strong { font-size: 12px; color: #52654d; }
+  .globex-workbench .sidebar-note p { display: none; }
+  .globex-workbench .sidebar-note-icon { width: 23px; height: 22px; color: #708a60; }
+  .globex-workbench .profile { padding-top: 12px; gap: 10px; }
+  .globex-workbench .profile-name { font-size: 13px; }
+  .globex-workbench .profile-caption { margin-top: 3px; font-size: 10px; color: #748076; }
+
+  /* 页头与表单沿用同一字号和控件高度，不干扰模型选择器内部布局。 */
+  .globex-workbench .workspace-page-title { min-width: 0; }
+  .globex-workbench .workspace-page-title > div { min-width: 0; }
+  .globex-workbench .workspace-page-title h1 { font-size: 22px; line-height: 1.45; overflow-wrap: anywhere; }
+  .globex-workbench .breadcrumb { font-size: 11px; line-height: 1.5; }
+  .globex-workbench .topbar-actions { gap: 12px; flex-shrink: 0; }
+  .globex-workbench .location { font-size: 12px; line-height: 20px; }
+  .globex-workbench .workspace-motion-toggle,
+  .evaluation-workbench .workspace-motion-toggle { min-height: 36px; font-size: 12px; border-radius: var(--ui-radius); }
+  .globex-workbench .icon-button { border-radius: var(--ui-radius); }
+  .globex-workbench .management-main :is(.workspace-heading, .skill-library-header, .automation-heading, .retrieval-heading) { margin-bottom: 18px; padding-bottom: 16px; }
+  .globex-workbench .management-main :is(.workspace-heading h1, .skill-library-header h2, .automation-heading h2, .retrieval-heading h1),
+  .evaluation-workbench .retrieval-heading h1 { margin-top: 0; font-size: 22px; line-height: 1.45; }
+  .globex-workbench :is(.workspace-heading p, .skill-library-header p, .automation-heading p, .retrieval-heading p),
+  .evaluation-workbench .retrieval-heading p { font-size: 13px; line-height: 1.8; color: var(--ui-muted); }
+
+  .globex-workbench :is(.workspace-library, .workspace-editor, .workspace-item, .favorite-row, .retrieval-panel, .retrieval-metric, .automation-task),
+  .evaluation-workbench :is(.retrieval-panel, .retrieval-metric) { border-color: var(--ui-line); border-radius: var(--ui-radius); }
+  .globex-workbench .workspace-grid { gap: 20px; }
+  .globex-workbench :is(.workspace-library, .workspace-editor) { padding: 20px; }
+  .globex-workbench .workspace-section-title h2 { color: var(--ui-ink); font-size: 15px; line-height: 1.6; }
+  .globex-workbench :is(.workspace-section-title button, .workspace-item-main strong, .workspace-row-actions button) { color: #426345; }
+  .globex-workbench .workspace-new { color: #526e47; border-color: #b8cbb0; background: #f7faf4; }
+  .globex-workbench :is(.workspace-example, .workspace-notice) { color: #4e6a45; background: #eef5e8; border-color: #dbe6d3; border-radius: var(--ui-radius); }
+  .globex-workbench .workspace-editor label { margin-top: 16px; color: #42594c; font-size: 13px; }
+  .globex-workbench .workspace-editor label:first-child { margin-top: 0; }
+  .globex-workbench .workspace-editor :is(input, select, textarea),
+  .automation-editor input:not(:where(.model-picker *)):not([type="radio"]):not([type="checkbox"]),
+  .automation-editor-content textarea {
+    min-height: 40px;
+    padding: 9px 12px;
+    border: 1px solid #ccd8cf;
+    border-radius: var(--ui-radius);
+    background: #fff;
+    color: var(--ui-ink);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .globex-workbench .workspace-editor textarea { min-height: 112px; }
+  .globex-workbench :is(.workspace-help, .workspace-form-footer > span, .workspace-section-title > span) { font-size: 12px; color: var(--ui-muted); }
+  .globex-workbench .workspace-item.selected { border-color: #8da57f; background: #f3f8ef; }
+  .globex-workbench :is(.workspace-new, .workspace-row-actions button, .workspace-delete-link) { font-size: 13px; }
+  .globex-workbench :is(.workspace-save, .skill-library-header .skill-create, .purchase-empty button, .automation-workspace button.primary),
+  .automation-editor button.primary:not(:where(.model-picker *)) { min-height: 40px; padding: 9px 16px; border: 1px solid var(--ui-ink); border-radius: var(--ui-radius); background: var(--ui-ink); color: #fff; font-size: 13px; }
+  .globex-workbench :is(.workspace-save, .skill-library-header .skill-create, .purchase-empty button, .automation-workspace button.primary):hover,
+  .automation-editor button.primary:not(:where(.model-picker *)):hover { background: #315142; border-color: #315142; }
+  .globex-workbench :is(.retrieval-refresh, .compact-orders button, .favorite-actions button, .automation-workspace button:not(:where(.model-picker *))),
+  .evaluation-workbench .retrieval-refresh { min-height: 36px; padding: 7px 12px; border-radius: var(--ui-radius); font-size: 13px; }
+  .globex-workbench .compact-orders .orders-toolbar button[aria-pressed="true"],
+  .globex-workbench .automation-filters button[aria-pressed="true"],
+  .automation-editor :is(.automation-segments, .automation-weekdays) button[aria-pressed="true"] { color: var(--ui-ink); background: var(--ui-selected); border-color: #b6c9ac; }
+  .globex-workbench .purchase-tabs button { min-height: 42px; font-size: 14px; }
+  .globex-workbench .purchase-tabs button[aria-selected="true"] { color: var(--ui-ink); background: #f0f6ec; border-bottom-color: #718e64; }
+  .globex-workbench .purchase-tabs button > span { color: #526e47; background: #e4efdf; }
+  .globex-workbench .compact-orders .order-card { border-color: var(--ui-line); border-radius: var(--ui-radius); }
+  .globex-workbench .compact-orders .order-card :is(h2, header small, .order-status, .order-lines small) { font-size: 12px; }
+  .globex-workbench .compact-orders .order-card :is(footer, .order-lines strong) { font-size: 13px; }
+  .globex-workbench .compact-orders .order-card > header { padding: 10px 14px; background: #f4f7f1; }
+  .globex-workbench .compact-orders .order-card footer { padding: 10px 14px; }
+  .globex-workbench .favorites-toolbar small { font-size: 12px; }
+  .globex-workbench :is(.purchase-empty, .automation-empty, .workspace-empty) { margin-block: 12px; padding: 28px 20px; color: var(--ui-muted); font-size: 13px; }
+  .globex-workbench :is(.compact-orders .workspace-empty, .purchase-empty) { min-height: 220px; margin: 12px 0; padding: 24px 20px; border-radius: var(--ui-radius); }
+  .globex-workbench :is(.purchase-empty h2, .automation-empty h3) { font-size: 18px; color: var(--ui-ink); }
+  .globex-workbench .buyer-workspace { padding-bottom: 8px; }
+  .globex-workbench .retrieval-evaluation { padding-bottom: 20px; }
+  .globex-workbench .automation-tabs button[aria-selected="true"] { border-bottom-color: #718e64; }
+  /* 旧组件用 important 固定标签颜色；此处只在桌面统一覆盖。 */
+  .globex-workbench .automation-tabs button[aria-selected="true"] { color: var(--ui-ink) !important; background: #f0f6ec !important; }
+
+  .globex-workbench .composer :is(.plan-picker-toggle, .composer-plan-toggle) { min-height: 28px; font-size: 12px; }
+  .globex-workbench .composer .plan-picker-toggle { color: #405e4c; background: #eef4e9; border-color: #d6e1cf; }
+  .globex-workbench .composer .plan-automatic { color: var(--ui-muted); font-size: 11px; }
+  .globex-workbench .composer .composer-hint { color: var(--ui-muted); font-size: 11px; }
+  .globex-workbench .composer .composer-plan-controls { padding-right: 125px; }
+  .globex-workbench .composer .composer-plan-toggle { top: 13px; }
+  .globex-workbench .preview-footer { font-size: 10px; }
+  .globex-workbench .send-button { height: 36px; min-width: 36px; }
+  .globex-workbench :is(button, input[type="checkbox"], input[type="radio"], input[type="range"]):focus-visible,
+  .automation-editor :is(button, input[type="checkbox"], input[type="radio"], input[type="range"]):focus-visible { outline: 2px solid #658455; outline-offset: 3px; }
+
+  /* 文本控件沿自身圆角显示焦点；按钮、勾选框与滑块保留独立键盘提示。 */
+  :is(.globex-workbench, .evaluation-workbench, .automation-editor, .skill-editor-overlay)
+  :is(input, textarea, select):not(:where([type="checkbox"], [type="radio"], [type="range"], [type="file"], [type="color"], [type="button"], [type="submit"], [type="reset"], [type="image"])):focus {
+    outline: none;
+    border-color: #aab5af;
+    box-shadow: 0 0 0 3px #20382f0a;
+  }
+  :is(.globex-workbench, .evaluation-workbench, .automation-editor, .skill-editor-overlay)
+  :is(input, textarea, select):not(:where([type="checkbox"], [type="radio"], [type="range"], [type="file"], [type="color"], [type="button"], [type="submit"], [type="reset"], [type="image"])):focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px #20382f14;
+  }
+
+  /* 组合输入区只高亮外层，内部无边框文字区不再出现第二个矩形。 */
+  .globex-workbench .composer:focus-within,
+  .globex-workbench .composer-dock--welcome .composer:focus-within {
+    outline: none;
+    border-color: #aab5af;
+    box-shadow: 0 8px 30px #172b341c, 0 0 0 3px #20382f0a;
+  }
+  .globex-workbench .composer textarea:is(:focus, :focus-visible),
+  .globex-workbench :is(.conversation-search-input, .model-search, .history-search) input:is(:focus, :focus-visible) {
+    outline: none;
+    box-shadow: none;
+  }
+  .globex-workbench :is(.model-search, .history-search):focus-within { border-color: #aab5af; box-shadow: 0 0 0 3px #20382f0a; }
+
+  /* 搜索框由圆角容器呈现焦点，避免通用 outline 在文字外围画出绿色方框。 */
+  .globex-workbench .overlay:has(.conversation-search) { background: #28382f29; }
+  .globex-workbench .modal:has(.conversation-search) { border-color: #dce3db; border-radius: 16px; background: #fff; box-shadow: 0 24px 80px #20382f24; }
+  .globex-workbench .modal:has(.conversation-search) > .close-modal { top: 22px; right: 18px; width: 28px; height: 28px; border-radius: 7px; background: #f1f4ef; color: #738076; }
+  .globex-workbench .conversation-search { color: var(--ui-ink); }
+  .globex-workbench .conversation-search-input {
+    min-height: 44px;
+    margin: 14px 56px 8px 18px;
+    padding: 8px 12px;
+    border: 1px solid #d9e0d8;
+    border-radius: 10px;
+    background: #f6f8f4;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .globex-workbench .conversation-search-input:focus-within { border-color: #aab5af; box-shadow: 0 0 0 3px #20382f0a; }
+  .globex-workbench .conversation-search-input > svg { color: #7b887e; }
+  .globex-workbench .conversation-search-input input { color: var(--ui-ink); }
+  .globex-workbench .conversation-search-input input:focus-visible { outline: none; box-shadow: none; }
+  .globex-workbench .conversation-search-input input::placeholder { color: #939d94; }
+  .globex-workbench .conversation-search-clear { color: #7b887e; }
+  .globex-workbench :is(.conversation-search-meta, .conversation-search-meta small, .conversation-search-result time, .conversation-search-footer) { color: #7e8b80; }
+  .globex-workbench .conversation-search-result { color: #53665a; }
+  .globex-workbench .conversation-search-result[aria-selected="true"] { color: var(--ui-ink); background: #eef2ed; border-color: transparent; }
+  .globex-workbench :is(.conversation-search-result > svg, .conversation-search-id) { color: #8b988b; }
+  .globex-workbench .conversation-search-current { color: #5c7259; background: #e4ebdf; }
+  .globex-workbench .conversation-search kbd { color: #7b887e; background: #f4f6f2; border-color: #e1e7dd; }
+  .globex-workbench .conversation-search-results { scrollbar-color: #d0d9cd transparent; }
+  .globex-workbench .conversation-search-empty { color: #8b988b; }
+  .globex-workbench .conversation-search-empty strong { color: #607460; }
+  .globex-workbench .conversation-search-footer { border-top-color: #e8ede4; }
+}
+
+@media (min-width: 1280px) {
+  :root { --sidebar-width: 280px; }
+  .globex-workbench .sidebar { padding-inline: 22px; }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .globex-workbench main:not(:has(.welcome-panel)) { padding-inline: 24px; }
+  .globex-workbench .preferences-workspace .workspace-grid,
+  .globex-workbench .retrieval-detail-grid { grid-template-columns: minmax(0, 1fr); }
+  .globex-workbench .preferences-workspace .workspace-library { order: 2; }
+  .globex-workbench .topbar-actions { gap: 8px; flex-wrap: wrap; }
+  .globex-workbench .workspace-form-footer { align-items: flex-start; flex-wrap: wrap; }
+  .globex-workbench .compact-orders .order-card > header { flex-wrap: wrap; }
+  .globex-workbench .compact-orders .order-card > header > div { flex-wrap: wrap; gap: 6px 12px; }
+}
+
+/* 矮屏优先为最近选购留出空间，菜单点击区域仍保持 44px。 */
+@media (min-width: 761px) and (max-height: 820px) {
+  .globex-workbench .sidebar { padding-block: 14px 12px; }
+  .globex-workbench .brand { padding-bottom: 14px; }
+  .globex-workbench .nav { margin-top: 8px; gap: 2px; }
+  .globex-workbench .desktop-nav-group { padding-top: 5px; padding-bottom: 2px; }
+  .globex-workbench .sidebar-search-trigger { margin-top: 8px; }
+  .globex-workbench .nav-label { margin-top: 12px; }
+  .globex-workbench .sidebar-note { display: none; }
+  .globex-workbench .sidebar-history { min-height: 64px; }
+}
+
+@media (min-width: 1401px) and (max-height: 800px) {
+  .globex-workbench main:has(.welcome-panel) .welcome-panel h2 { max-width: 440px; }
+}

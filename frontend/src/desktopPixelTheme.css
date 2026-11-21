@@ -1,0 +1,783 @@
+/* 素材来源与使用边界见 public/assets/cofounder-inspired/SOURCES.md。 */
+@media (min-width: 761px) {
+  .globex-workbench {
+    --pixel-assets: "/assets/cofounder-inspired";
+    --pixel-paper: #f6f7f5;
+    --pixel-line: #d9dfdf;
+    --pixel-blue: #087dca;
+    --pixel-gutter: 36px;
+    background: var(--pixel-paper);
+  }
+
+  .globex-workbench main { padding: 26px 36px 210px; background: transparent; }
+  .globex-workbench main.management-main { padding-bottom: 40px; }
+  .globex-workbench .content { max-width: 1320px; }
+  .globex-workbench .brand-name,
+  .globex-workbench .brand-subtitle,
+  .globex-workbench .workspace-page-title h1,
+  .globex-workbench .welcome-panel *,
+  .globex-workbench .management-main * { letter-spacing: 0; }
+  .globex-workbench .topbar {
+    padding: 0 0 16px;
+    margin-bottom: 20px;
+    background: transparent;
+    border-top: 0;
+  }
+  .globex-workbench .topbar::before { display: none; }
+  .globex-workbench .sidebar-note {
+    background: #edf6f7 url('/assets/cofounder-inspired/pixel-footer.webp') center bottom / auto 25px no-repeat;
+    padding-bottom: 32px;
+  }
+  .globex-workbench .nav-item[data-view]::before {
+    content: "";
+    width: 23px;
+    height: 23px;
+    flex: 0 0 23px;
+    background: var(--nav-art) center / contain no-repeat;
+    image-rendering: pixelated;
+  }
+  .globex-workbench .nav-item[data-view] > svg { display: none; }
+  .nav-item[data-view="orders"] { --nav-art: url('/assets/cofounder-inspired/icon-order.png'); }
+  .nav-item[data-view="favorites"] { --nav-art: url('/assets/cofounder-inspired/icon-folder.png'); }
+  .nav-item[data-view="skills"] { --nav-art: url('/assets/meridian/icon-skills.svg'); }
+  .nav-item[data-view="preferences"] { --nav-art: url('/assets/cofounder-inspired/icon-notebook.png'); }
+  .nav-item[data-view="automations"] { --nav-art: url('/assets/cofounder-inspired/icon-idea.png'); }
+  .nav-item[data-view="retrieval"] { --nav-art: url('/assets/cofounder-inspired/icon-world.png'); }
+
+  /* 首页保留现有选购入口，完整风景替换之前的纯色模拟背景。 */
+  .globex-workbench .shopping-layout:has(.welcome-panel) { padding-top: 0; }
+  .globex-workbench .shopping-layout:has(.welcome-panel) .shopping-conversation { max-width: none; padding: 0; }
+  .globex-workbench .welcome-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 610px;
+    margin: 0;
+    padding: 48px 38px 45px;
+    background: #168ed9 url('/assets/cofounder-inspired/hero-landscape.webp') center / cover no-repeat;
+    border: 0;
+    border-radius: 0;
+    text-align: left;
+  }
+  .globex-workbench .welcome-panel::before { display: none; }
+  .globex-workbench .welcome-panel::after {
+    height: 20px;
+    background: url('/assets/cofounder-inspired/carousel-bottom.png') center bottom / 100% 28px no-repeat;
+    opacity: 1;
+    pointer-events: none;
+  }
+  .globex-workbench .welcome-symbol { display: none; }
+  .globex-workbench .welcome-panel .eyebrow { color: #fff; font-size: 10px; margin: 0 0 18px; }
+  .globex-workbench .welcome-panel h2 { color: #fff; font-size: 38px; line-height: 1.3; max-width: 540px; font-weight: 600; }
+  .globex-workbench .welcome-panel h2 em { color: #fff; }
+  .globex-workbench .welcome-panel > p { color: #fff; margin: 16px 0 22px; font-size: 14px; }
+  .globex-workbench .welcome-ideas { grid-template-columns: 1fr; width: min(380px, 100%); margin: 0; gap: 8px; }
+  .globex-workbench .welcome-ideas button {
+    min-height: 58px;
+    padding: 11px 14px;
+    background: #ffffffed;
+    border-color: #fff;
+    border-radius: 5px;
+    backdrop-filter: none;
+    box-shadow: 0 3px 0 #0b679746;
+  }
+  .globex-workbench .welcome-ideas button:hover { background: #fff; transform: translateY(-1px); }
+  .globex-workbench .welcome-ideas strong { color: #172b34; font-size: 13px; }
+  .globex-workbench .welcome-ideas small { color: #526774; font-size: 11px; }
+  .globex-workbench .welcome-ideas .starter-icon { color: #087dca; background: #e1f3fb; }
+  .globex-workbench .welcome-ideas button > svg { color: #087dca; }
+  .globex-workbench .welcome-caption { margin-top: 18px; color: #fff; font-size: 10px; }
+  .globex-workbench .welcome-plan-disclosure { max-width: none; margin: 12px 0 0; color: #364a50; }
+  .globex-workbench .welcome-plan-disclosure > summary { color: #364a50; border-color: #d9dfdf; }
+
+  /* 订单与收藏共用原工作区，天空和树木只绘制在内容背后。 */
+  .globex-workbench[data-view="orders"] main,
+  .globex-workbench[data-view="favorites"] main {
+    min-height: 100vh;
+    background-color: #168fdc;
+    background-image:
+      url('/assets/cofounder-inspired/right-top-decor.png'),
+      url('/assets/cofounder-inspired/left-decor.png'),
+      url('/assets/cofounder-inspired/right-bottom-decor.png'),
+      url('/assets/cofounder-inspired/clouds-left.png'),
+      url('/assets/cofounder-inspired/clouds-right.png'),
+      url('/assets/cofounder-inspired/sky-texture.avif');
+    background-position: right top, left bottom, right bottom, left 190px, right 290px, center;
+    background-size: 470px auto, 480px auto, 480px auto, 300px auto, 280px auto, cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  .globex-workbench:is([data-view="orders"], [data-view="favorites"]) .topbar { border-color: #ffffff69; }
+  .globex-workbench:is([data-view="orders"], [data-view="favorites"]) .workspace-page-title h1,
+  .globex-workbench:is([data-view="orders"], [data-view="favorites"]) .breadcrumb,
+  .globex-workbench:is([data-view="orders"], [data-view="favorites"]) .breadcrumb span:last-child { color: #fff; }
+  .globex-workbench .purchases-workspace { padding: 0; }
+  .globex-workbench .purchase-tabs { background: #fffffff2; padding: 0 18px; border-color: #d9dfdf; }
+  .globex-workbench .purchase-tabs button { padding: 15px 2px 13px; color: #52616b; }
+  .globex-workbench .purchase-tabs button[aria-selected="true"] { color: #0875b9; border-bottom-color: #0875b9; }
+  .globex-workbench .compact-orders .orders-toolbar,
+  .globex-workbench .favorites-toolbar { margin: 0; padding: 16px 18px; background: #fffffff2; }
+  .globex-workbench .compact-orders .order-list,
+  .globex-workbench .favorite-list { margin: 20px 0 80px; gap: 14px; }
+  .globex-workbench .order-card,
+  .globex-workbench .favorite-row { border-color: #d9dfdf; border-radius: 4px; background: #fff; box-shadow: 0 3px 0 #0b6b9e35; }
+  .globex-workbench .compact-orders .order-card > header { padding: 11px 16px; background: #f6fafb; }
+  .globex-workbench .compact-orders .order-lines { padding: 16px; }
+  .globex-workbench .compact-orders .order-thumbnail { width: 72px; height: 72px; flex-basis: 72px; background: #f4f8f9; border: 1px solid #dfe7ea; border-radius: 4px; }
+  .globex-workbench .compact-orders .order-card footer { padding: 16px; background: #f9fbfb; }
+  .globex-workbench .compact-orders .order-lines strong { font-size: 13px; }
+  .globex-workbench .orders-pagination { background: #fffffff2; padding: 12px 18px; }
+  .globex-workbench .compact-orders .workspace-empty,
+  .globex-workbench .purchase-empty {
+    min-height: 330px;
+    padding: 48px 30px;
+    margin: 0 0 150px;
+    border: 0;
+    border-radius: 0;
+    background: #fffffff2;
+    color: #4e6067;
+    text-align: center;
+  }
+  .globex-workbench .compact-orders .workspace-empty::before,
+  .globex-workbench .purchase-empty::before {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 18px;
+    background: url('/assets/cofounder-inspired/icon-order.png') center / contain no-repeat;
+    image-rendering: pixelated;
+  }
+  .globex-workbench .purchase-empty::before { background-image: url('/assets/cofounder-inspired/icon-folder.png'); }
+  .globex-workbench .purchase-empty > svg { display: none; }
+  .globex-workbench .compact-orders .workspace-empty h2,
+  .globex-workbench .purchase-empty h2 { color: #182d35; font-size: 22px; }
+  .globex-workbench .compact-orders .workspace-empty p,
+  .globex-workbench .purchase-empty p { font-size: 13px; }
+
+  /* 管理页使用实际章节画作，保留各自标题、工具栏与数据布局。 */
+  .globex-workbench:is([data-view="skills"], [data-view="preferences"], [data-view="automations"], [data-view="retrieval"]) main {
+    min-height: 100vh;
+    background: #f6f7f5 url('/assets/cofounder-inspired/paper-grid.webp') center top / 1050px auto repeat-y;
+  }
+  .globex-workbench .skill-library-header,
+  .globex-workbench .preferences-workspace > .workspace-heading,
+  .globex-workbench .automation-heading,
+  .globex-workbench .retrieval-heading {
+    position: relative;
+    display: block;
+    max-width: none;
+    min-height: 220px;
+    margin: 0 0 24px;
+    padding: 24px calc(36% + 24px) 24px 0;
+    border-bottom: 1px solid #d9dfdf;
+    background: transparent;
+  }
+  .globex-workbench .skill-library-header::after,
+  .globex-workbench .preferences-workspace > .workspace-heading::after,
+  .globex-workbench .automation-heading::after,
+  .globex-workbench .retrieval-heading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 34%;
+    height: calc(100% - 18px);
+    background: var(--chapter-art) center / cover no-repeat;
+    border-radius: 4px;
+    image-rendering: pixelated;
+    pointer-events: none;
+  }
+  .globex-workbench .skill-library-header { --chapter-art: url('/assets/cofounder-inspired/chapter-start.png'); }
+  .globex-workbench .preferences-workspace > .workspace-heading { --chapter-art: url('/assets/cofounder-inspired/chapter-scale.png'); }
+  .globex-workbench .automation-heading { --chapter-art: url('/assets/cofounder-inspired/chapter-build.png'); }
+  .globex-workbench .retrieval-heading { --chapter-art: url('/assets/cofounder-inspired/chapter-sell.png'); }
+  .globex-workbench .skill-library-header h2,
+  .globex-workbench .workspace-heading h1,
+  .globex-workbench .automation-heading h2,
+  .globex-workbench .retrieval-heading h1 { font: 600 25px/1.4 var(--sans); color: #182d35; margin: 0 0 12px; }
+  .globex-workbench .skill-library-header p,
+  .globex-workbench .workspace-heading p,
+  .globex-workbench .automation-heading p,
+  .globex-workbench .retrieval-heading p { font-size: 13px; color: #52666e; margin: 0 0 18px; }
+  .globex-workbench .skill-library-header .skill-create,
+  .globex-workbench .automation-heading button.primary,
+  .globex-workbench .retrieval-heading .retrieval-refresh { display: inline-flex; background: #172c34; color: #fff; border-color: #172c34; border-radius: 4px; }
+  .globex-workbench .workspace-library,
+  .globex-workbench .workspace-editor { background-color: #fff; }
+  .globex-workbench .skills-workspace .workspace-empty::before,
+  .globex-workbench .preferences-workspace .workspace-empty::before {
+    content: "";
+    display: block;
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 12px;
+    background: url('/assets/cofounder-inspired/icon-folder.png') center / contain no-repeat;
+    image-rendering: pixelated;
+  }
+  .globex-workbench .skills-workspace .workspace-empty::before { background-image: url('/assets/meridian/icon-skills.svg'); }
+  .globex-workbench .preferences-workspace .workspace-empty::before { background-image: url('/assets/cofounder-inspired/icon-notebook.png'); }
+  .globex-workbench :is(.skills-workspace,.preferences-workspace) .workspace-empty > svg { display: none; }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .globex-workbench { --pixel-gutter: 22px; }
+  .globex-workbench main { padding-right: 22px; padding-left: 22px; }
+  .globex-workbench .welcome-panel { padding: 36px 24px 40px; min-height: 560px; background-position: 47% center; }
+  .globex-workbench .welcome-panel h2 { font-size: 30px; }
+  .globex-workbench .welcome-ideas { width: min(315px, 100%); }
+  .globex-workbench .skill-library-header h2,
+  .globex-workbench .workspace-heading h1,
+  .globex-workbench .automation-heading h2,
+  .globex-workbench .retrieval-heading h1 { font-size: 22px; }
+  .globex-workbench .compact-orders .order-card { grid-template-columns: minmax(0, 1fr); }
+  .globex-workbench .compact-orders .order-card footer { flex-direction: row; border-left: 0; border-top: 1px solid #e4e7ec; flex-wrap: wrap; }
+}
+
+@media (min-width: 761px) {
+  .globex-workbench .content {
+    width: 100%;
+    max-width: 1800px;
+  }
+
+  .globex-workbench .shopping-layout:has(.welcome-panel) .shopping-conversation {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+
+  .globex-workbench .welcome-panel {
+    min-height: clamp(460px, calc(100dvh - 454px), 1200px);
+    padding: clamp(38px, 3vw, 72px);
+    background-position: center 54%;
+  }
+
+  .globex-workbench .welcome-panel h2 { max-width: 620px; }
+  .globex-workbench .welcome-panel > p { max-width: 560px; }
+  .globex-workbench .welcome-ideas { width: min(460px, 100%); }
+
+  .globex-workbench main:has(.shopping-layout):has(.welcome-panel) {
+    padding-bottom: 0;
+  }
+
+  .globex-workbench .composer-dock--welcome {
+    position: static;
+    inset: auto;
+    width: auto;
+    margin-left: var(--sidebar-width);
+    padding: 24px var(--pixel-gutter) 32px;
+    background: transparent;
+    pointer-events: auto;
+  }
+
+  .globex-workbench .composer-dock--welcome .composer-wrap {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding-inline: clamp(38px, 3vw, 72px);
+  }
+
+  .globex-workbench .composer-dock--welcome :is(.composer, .preview-footer, .compare-bar) {
+    max-width: 1040px;
+  }
+
+  .globex-workbench[data-view="orders"] main,
+  .globex-workbench[data-view="favorites"] main {
+    background-color: #f6f7f5;
+    background-image:
+      url('/assets/cofounder-inspired/right-top-decor.png'),
+      url('/assets/cofounder-inspired/left-decor.png'),
+      url('/assets/cofounder-inspired/right-bottom-decor.png'),
+      url('/assets/cofounder-inspired/paper-grid.webp');
+    background-position: right top, left bottom, right bottom, center top;
+    background-size: 340px auto, 330px auto, 340px auto, 1050px auto;
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat-y;
+    background-attachment: scroll;
+  }
+
+  .globex-workbench:is([data-view="orders"], [data-view="favorites"]) .workspace-page-title h1,
+  .globex-workbench:is([data-view="orders"], [data-view="favorites"]) .breadcrumb,
+  .globex-workbench:is([data-view="orders"], [data-view="favorites"]) .breadcrumb span:last-child {
+    color: #182d35;
+  }
+
+  .globex-workbench:is([data-view="orders"], [data-view="favorites"]) .purchase-tabs,
+  .globex-workbench:is([data-view="orders"], [data-view="favorites"]) .compact-orders .orders-toolbar,
+  .globex-workbench:is([data-view="orders"], [data-view="favorites"]) .favorites-toolbar,
+  .globex-workbench:is([data-view="orders"], [data-view="favorites"]) .orders-pagination,
+  .globex-workbench:is([data-view="orders"], [data-view="favorites"]) .compact-orders .workspace-empty,
+  .globex-workbench:is([data-view="orders"], [data-view="favorites"]) .purchase-empty {
+    background-color: #fffffffa;
+    border-color: #d9dfdf;
+  }
+
+  .globex-workbench:is([data-view="orders"], [data-view="favorites"]) .compact-orders .workspace-empty,
+  .globex-workbench:is([data-view="orders"], [data-view="favorites"]) .purchase-empty {
+    border: 1px solid #d9dfdf;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 #172c3410;
+  }
+}
+
+/* 桌面空首页将像素场景铺满主工作区，首屏内容直接叠在场景中。 */
+@media (min-width: 761px) {
+  .globex-workbench:has(.welcome-panel) { position: relative; }
+
+  .globex-workbench main:has(.welcome-panel) {
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 0;
+  }
+
+  .globex-workbench main:has(.welcome-panel) .content {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+  }
+
+  .globex-workbench main:has(.welcome-panel) .shopping-layout,
+  .globex-workbench main:has(.welcome-panel) .shopping-conversation {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .globex-workbench main:has(.welcome-panel) .topbar {
+    position: absolute;
+    z-index: 5;
+    top: 22px;
+    right: 36px;
+    left: 44px;
+    min-height: 42px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    pointer-events: none;
+  }
+
+  .globex-workbench main:has(.welcome-panel) .topbar::before { display: none; }
+  .globex-workbench main:has(.welcome-panel) .topbar > * { pointer-events: auto; }
+  .globex-workbench main:has(.welcome-panel) .workspace-page-title h1 { display: none; }
+  .globex-workbench main:has(.welcome-panel) .breadcrumb,
+  .globex-workbench main:has(.welcome-panel) .breadcrumb span:last-child { color: #ffffffdf; }
+  .globex-workbench main:has(.welcome-panel) .location,
+  .globex-workbench main:has(.welcome-panel) .atmosphere-toggle {
+    color: #fff;
+    background: #ffffff24;
+    border-color: #ffffff66;
+    border-radius: 4px;
+    backdrop-filter: blur(8px);
+  }
+
+  .globex-workbench main:has(.welcome-panel) .welcome-panel {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    height: max(720px, 100vh);
+    height: max(720px, 100dvh);
+    min-height: 0;
+    margin: 0;
+    padding: 132px 64px 190px;
+    overflow: hidden;
+    border: 0;
+    border-radius: 0;
+    background: #168ed9 url('/assets/cofounder-inspired/hero-landscape.webp') center / cover no-repeat;
+    box-shadow: none;
+    text-align: left;
+  }
+
+  .globex-workbench .welcome-scene-video {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 50%;
+    width: auto;
+    min-width: 100%;
+    max-width: none;
+    height: 100%;
+    transform: translateX(-50%);
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+  }
+
+  .globex-workbench main:has(.welcome-panel) .welcome-panel::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    display: block;
+    background:
+      linear-gradient(90deg, #07558c45 0%, #07558c25 35%, #07558c08 68%, transparent 100%),
+      linear-gradient(0deg, #12271f50 0%, transparent 38%);
+    pointer-events: none;
+  }
+
+  .globex-workbench main:has(.welcome-panel) .welcome-panel > :not(.welcome-scene-video, .welcome-motion-toggle, .welcome-ideas) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .globex-workbench main:has(.welcome-panel) .welcome-panel::after {
+    z-index: 3;
+    height: 22px;
+    background: url('/assets/cofounder-inspired/carousel-bottom.png') center bottom / 100% 28px no-repeat;
+    opacity: 1;
+  }
+
+  .globex-workbench main:has(.welcome-panel) .welcome-symbol { display: none; }
+  .globex-workbench main:has(.welcome-panel) .welcome-panel .eyebrow {
+    margin: 0 0 18px;
+    color: #e3f4ff;
+    font-size: 10px;
+  }
+
+  .globex-workbench main:has(.welcome-panel) .welcome-panel h2 {
+    max-width: 510px;
+    color: #fff;
+    font-size: 48px;
+    font-weight: 650;
+    line-height: 1.28;
+    animation: meridian-welcome-in 520ms ease-out backwards;
+  }
+
+  .globex-workbench main:has(.welcome-panel) .welcome-panel h2 em { color: #fff; }
+  .globex-workbench main:has(.welcome-panel) .welcome-panel > p {
+    max-width: 440px;
+    margin: 14px 0 22px;
+    color: #e3f4ff;
+    font-size: 14px;
+    animation: meridian-welcome-in 520ms 70ms ease-out backwards;
+  }
+
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas {
+    --starter-step: 58px;
+    position: absolute;
+    z-index: 2;
+    top: clamp(280px, 35dvh, 470px);
+    right: 24%;
+    display: block;
+    width: 344px;
+    height: 168px;
+    margin: 0;
+    transform: perspective(300px) rotateY(-12deg) rotateX(-2deg) rotateZ(2deg) skewX(1deg);
+    transform-origin: center bottom;
+  }
+
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas button {
+    position: absolute;
+    inset: 0 0 auto;
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    gap: 9px;
+    padding: 11px 14px;
+    background: linear-gradient(180deg, #16453d99, #16453dcc);
+    border: 1px solid #c3eadb59;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 1px #ffffff66, inset 0 -1px 2px #00000024;
+    backdrop-filter: blur(16px) saturate(1.19);
+    transform: translateY(calc(var(--starter-slot) * var(--starter-step)));
+    opacity: 1;
+    animation: none;
+    transition: transform 480ms cubic-bezier(.22, 1, .36, 1), opacity 380ms ease, background 200ms, border-color 200ms;
+  }
+
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas[data-motion="playing"] button[data-revealed="false"] {
+    opacity: 0;
+    transform: translateY(calc(var(--starter-slot) * var(--starter-step) + 10px)) scale(.88);
+    pointer-events: none;
+  }
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas[data-motion="playing"][data-phase="exit"] button[data-slot="0"] {
+    opacity: 0;
+    transform: translateY(-12px) scale(.95);
+    pointer-events: none;
+    transition-duration: 380ms;
+  }
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas[data-motion="playing"][data-phase="enter"] button[data-slot="2"] {
+    animation: meridian-starter-pop 520ms cubic-bezier(.34, 1.56, .64, 1) both;
+  }
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas button:hover {
+    background: #194d3fe8;
+    border-color: #bcf2d080;
+    box-shadow: 0 5px 16px #102d2533;
+  }
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas button:focus-visible {
+    outline: 2px solid #ceffb3;
+    outline-offset: 3px;
+    background: #194d3ff2;
+  }
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas button > span:nth-child(2) {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas strong {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas strong::before {
+    content: attr(data-category);
+    color: #d1e5df;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas small { display: none; }
+  /* 绿点只作视觉引导，仍是原有的选购入口，不代表任务状态。 */
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas .starter-icon {
+    flex: 0 0 7px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #a3e635;
+    box-shadow: 0 0 6px #a3e63566;
+  }
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas button:nth-child(2) .starter-icon { background: #34d399; box-shadow: 0 0 6px #34d39980; }
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas .starter-icon svg { display: none; }
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas button > svg {
+    display: none;
+  }
+  .globex-workbench main:has(.welcome-panel) .welcome-caption {
+    margin-top: 16px;
+    color: #e3f4ff;
+    font-size: 10px;
+  }
+
+  .globex-workbench .composer-dock--welcome {
+    position: fixed;
+    z-index: 25;
+    inset: auto 0 0 var(--sidebar-width);
+    margin: 0;
+    padding: 20px 32px 24px;
+    background: transparent;
+    pointer-events: none;
+  }
+
+  .globex-workbench .composer-dock--welcome .composer-wrap {
+    width: min(780px, 100%);
+    max-width: 780px;
+    margin: 0 auto;
+    padding-inline: 0;
+    pointer-events: auto;
+  }
+
+  .globex-workbench .composer-dock--welcome .composer {
+    border-color: #d5dbd4;
+    border-radius: 8px;
+    background: #ffffffed;
+    box-shadow: 0 8px 30px #172b341c;
+    backdrop-filter: blur(14px);
+  }
+
+  .globex-workbench .composer-dock--welcome .composer:focus-within {
+    border-color: #8baac1;
+    box-shadow: 0 8px 30px #172b3420, 0 0 0 3px #d2e5ee66;
+  }
+
+  .globex-workbench .composer-dock--welcome .send-button { background: #172c34; }
+  .globex-workbench .composer-dock--welcome .send-button:hover { background: #284a56; }
+  .globex-workbench .composer-dock--welcome .plan-picker-toggle { color: #395b64; border-color: #dbe5e6; background: #edf4f5; }
+  .globex-workbench .composer-dock--welcome :is(.plan-automatic, .composer-plan-toggle, .composer-hint) { color: #647a82; }
+  .globex-workbench .composer-dock--welcome .composer-hint svg { color: #6c9295; }
+  .globex-workbench .composer-dock--welcome textarea { color: #1e3b45; }
+  .globex-workbench .composer-dock--welcome textarea::placeholder { color: #8a9699; }
+
+  .globex-workbench .composer-dock--welcome .preview-footer { color: #fff; text-shadow: 0 1px 4px #172c3480; }
+
+  .globex-workbench main:has(.welcome-panel) .welcome-motion-toggle {
+    position: absolute;
+    z-index: 4;
+    top: 28px;
+    right: 160px;
+    bottom: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 11px;
+    border: 1px solid #ffffff70;
+    border-radius: 4px;
+    background: #173d3273;
+    color: #fff;
+    font: 11px/1.3 var(--sans);
+    backdrop-filter: blur(8px);
+  }
+
+  .globex-workbench .welcome-motion-toggle svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+  .globex-workbench .welcome-motion-toggle:hover { background: #173d32b3; }
+
+  .globex-workbench main:has(.welcome-panel) .welcome-plan-disclosure {
+    max-width: none;
+    margin: 0;
+    padding: 16px 64px 32px;
+    background: #f6f7f5;
+  }
+
+  .globex-workbench main:has(.welcome-panel) .welcome-plan-disclosure > summary {
+    max-width: 700px;
+    border: 0;
+  }
+
+  /* 展开后留出固定输入栏的空间，最后一张方案卡仍可滚动至可操作区域。 */
+  .globex-workbench main:has(.welcome-panel) .welcome-plan-disclosure[open] { padding-bottom: 240px; }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .globex-workbench main:has(.welcome-panel) .topbar { left: 28px; right: 24px; }
+  .globex-workbench main:has(.welcome-panel) .welcome-panel { padding: 116px 32px 180px; }
+  .globex-workbench main:has(.welcome-panel) .welcome-panel h2 { max-width: 440px; font-size: 38px; }
+  .globex-workbench main:has(.welcome-panel) .welcome-panel > p { max-width: 390px; }
+  .globex-workbench .composer-dock--welcome { padding-right: 24px; padding-left: 24px; }
+  .globex-workbench main:has(.welcome-panel) .welcome-plan-disclosure { padding-inline: 32px; }
+  .globex-workbench main:has(.welcome-panel) .welcome-motion-toggle { right: 148px; }
+}
+
+/* 中等桌面宽度将加大的浮层留在文字下方，避免压住标题。 */
+@media (min-width: 761px) and (max-width: 1400px) {
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: min(344px, 100%);
+    margin: 12px 0 0 -12px;
+    transform-origin: center bottom;
+  }
+}
+
+@media (min-width: 761px) and (max-height: 800px) {
+  .globex-workbench .composer-dock--welcome { padding-bottom: 16px; }
+  .globex-workbench main:has(.welcome-panel) .welcome-panel { padding-top: 96px; }
+  .globex-workbench main:has(.welcome-panel) .welcome-panel h2 { font-size: 38px; }
+  .globex-workbench main:has(.welcome-panel) .welcome-panel .eyebrow { margin-bottom: 12px; }
+  .globex-workbench main:has(.welcome-panel) .welcome-panel > p { margin: 12px 0 16px; }
+}
+
+@media (min-width: 761px) and (max-height: 680px) {
+  .globex-workbench main:has(.welcome-panel) .welcome-panel { padding-top: 84px; }
+  .globex-workbench main:has(.welcome-panel) .welcome-panel h2 { font-size: 32px; }
+  .globex-workbench main:has(.welcome-panel) .welcome-panel .eyebrow { margin-bottom: 8px; }
+  .globex-workbench main:has(.welcome-panel) .welcome-panel > p { margin: 10px 0 12px; }
+  .globex-workbench main:has(.welcome-panel) .welcome-caption { margin-top: 12px; }
+}
+
+@media (min-width: 1401px) and (max-height: 800px) {
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas { top: 224px; }
+}
+
+@keyframes meridian-welcome-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes meridian-starter-pop {
+  from { opacity: 0; transform: translateY(calc(2 * var(--starter-step) + 10px)) scale(.88); }
+  to { opacity: 1; transform: translateY(calc(2 * var(--starter-step))) scale(1); }
+}
+
+@media (min-width: 761px) and (prefers-reduced-motion: reduce) {
+  .globex-workbench main:has(.welcome-panel) .welcome-panel :is(h2, p, .welcome-ideas button) {
+    animation: none;
+  }
+  .globex-workbench main:has(.welcome-panel) .welcome-ideas button { transition: none; }
+}
+
+/* 同一像素场景延续到选购会话和管理页；业务内容放在清晰的浅色阅读层。 */
+@media (min-width: 761px) {
+  .globex-workbench:not(:has(.welcome-panel)),
+  .evaluation-workbench { position: relative; min-height: 100dvh; isolation: isolate; }
+
+  .globex-workbench:not(:has(.welcome-panel))::before,
+  .evaluation-workbench::before,
+  .workspace-scene {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    inset: 0 0 0 var(--sidebar-width);
+    pointer-events: none;
+    overflow: hidden;
+    background: linear-gradient(#123d3230, #123d3250), url('/assets/cofounder-inspired/hero-landscape.webp') center / cover no-repeat;
+  }
+
+  .evaluation-workbench::before,
+  .evaluation-workbench .workspace-scene { left: 0; }
+  .workspace-scene .welcome-scene-video { z-index: 0; width: 100%; height: 100%; object-fit: cover; }
+  .workspace-scene::after { content: ""; position: absolute; inset: 0; background: linear-gradient(#123d3230, #123d3250); }
+
+  .globex-workbench:not(:has(.welcome-panel)) main { min-height: 100dvh; background: transparent; }
+  .globex-workbench:not(:has(.welcome-panel)) .content > :not(.topbar),
+  .evaluation-workbench .evaluation-page > .retrieval-evaluation {
+    padding: 24px;
+    border: 1px solid #ffffffc7;
+    border-radius: 12px;
+    background: #f6f9f5f2;
+    box-shadow: 0 12px 40px #103b3026;
+    backdrop-filter: blur(14px);
+  }
+
+  .globex-workbench:not(:has(.welcome-panel)) .topbar { border: 0; color: #fff; }
+  .globex-workbench:not(:has(.welcome-panel)) :is(.workspace-page-title h1, .breadcrumb, .breadcrumb span:last-child),
+  .evaluation-workbench :is(.evaluation-page-brand, .evaluation-page-brand span span, .evaluation-page-back) { color: #fff; text-shadow: 0 1px 5px #103b3073; }
+  .globex-workbench:not(:has(.welcome-panel)) .location {
+    color: #fff;
+    background: #163e35a6;
+    border-color: #ffffff70;
+    border-radius: 6px;
+    backdrop-filter: blur(8px);
+  }
+
+  .workspace-motion-toggle {
+    position: relative;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 11px;
+    border: 1px solid #ffffff70;
+    border-radius: 6px;
+    background: #163e35a6;
+    color: #fff;
+    font: 11px/1.3 var(--sans);
+    white-space: nowrap;
+    backdrop-filter: blur(8px);
+  }
+  .workspace-motion-toggle:hover { background: #173d32df; }
+  .workspace-motion-toggle:focus-visible { outline: 2px solid #ceffb3; outline-offset: 3px; }
+  .workspace-motion-toggle svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+
+  .globex-workbench:not(:has(.welcome-panel)) :is(.skill-library-header, .preferences-workspace > .workspace-heading, .automation-heading, .retrieval-heading) {
+    min-height: 0;
+    padding: 0 0 22px;
+  }
+  .globex-workbench:not(:has(.welcome-panel)) :is(.skill-library-header, .preferences-workspace > .workspace-heading, .automation-heading, .retrieval-heading)::after { display: none; }
+  .globex-workbench:not(:has(.welcome-panel)) .composer-dock { background: linear-gradient(0deg, #143d3280, #143d3200); }
+  .globex-workbench:not(:has(.welcome-panel)) .composer { background: #fffffff5; }
+  .globex-workbench:not(:has(.welcome-panel)) .preview-footer { color: #fff; text-shadow: 0 1px 4px #103b3080; }
+
+  .evaluation-workbench .evaluation-page { background: transparent; margin-left: auto; }
+  .evaluation-workbench .evaluation-page-header { min-height: 70px; align-items: center; padding: 0; border: 0; }
+  .evaluation-workbench .evaluation-page-header::after { display: none; }
+  .evaluation-workbench .evaluation-page-actions { display: flex; align-items: center; gap: 18px; }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .globex-workbench:not(:has(.welcome-panel)) .content > :not(.topbar),
+  .evaluation-workbench .evaluation-page > .retrieval-evaluation { padding: 18px; }
+  .globex-workbench:not(:has(.welcome-panel)) .topbar { gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+  .globex-workbench:not(:has(.welcome-panel)) .topbar-actions { flex-wrap: wrap; }
+  .evaluation-workbench .evaluation-page-header { flex-wrap: wrap; gap: 18px; }
+}
